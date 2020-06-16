@@ -5,96 +5,96 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody player;
-    public bool movement_enabled;
-    public float max_speed;
-    public float min_speed;
-    public float min_break_speed;
-    public float current_speed;
-    public float base_acceleration_rate;
-    public float acceleration_modifier;
-    public float acceleration_modifier_rate;
-    public float acceleration_modifier_max;
-    public float acceleration_modifier_min;
-    public float current_acceleration;
-    public float speed_decay;
-    public float acceleration_decay;
-    public float rotation_rate;
+    public bool movementEnabled;
+    public float maxSpeed;
+    public float minSpeed;
+    public float minBreakSpeed;
+    public float currentSpeed;
+    public float baseAccelerationRate;
+    public float accelerationModifier;
+    public float accelerationModifierRate;
+    public float accelerationModifierMax;
+    public float accelerationModifierMin;
+    public float currentAcceleration;
+    public float speedDecay;
+    public float accelerationDecay;
+    public float rotationRate;
 
     // Use this for initialization
     private void Start()
     {
         // Asks if the Movement itself is enabled
-        movement_enabled = true;
+        movementEnabled = true;
         // Describes the maximal speed for the player
-        max_speed = 40f;
+        maxSpeed = 40f;
         // Describes the minimal speed for the player
-        min_speed = 7.5f;
+        minSpeed = 7.5f;
         // Describes the minimal speed while breaking
-        min_break_speed = 2.5f;
+        minBreakSpeed = 2.5f;
         // Stores the current speed of the ship, initiated as the minimum speed
-        current_speed = min_speed;
+        currentSpeed = minSpeed;
         // Rate in which the player accelerates, the higher the rate, the greater the (de)acceleration
-        base_acceleration_rate = 100f;
+        baseAccelerationRate = 100f;
         // Modifier that is manipulated by the player, initiated at 0
-        acceleration_modifier = 0f;
+        accelerationModifier = 0f;
         // Rate at which the player can manipulate their acceleration
-        acceleration_modifier_rate = 5f;
+        accelerationModifierRate = 5f;
         // Maximum modifier for player acceleration
-        acceleration_modifier_max = 1f;
+        accelerationModifierMax = 1f;
         // Minimum modifier for player acceleration
-        acceleration_modifier_min = -1f;
+        accelerationModifierMin = -1f;
         // Current acceleration for the player, initated at 0
-        current_acceleration = 0f;
+        currentAcceleration = 0f;
         // Rate at which the speed of the ship decreases (up to the minimum speed), basically "friction"
-        speed_decay = 1f;
+        speedDecay = 1f;
         // Rate at which the acceleration decays towards 0 when not actively manipulated by the player
-        acceleration_decay = 0.9f;
+        accelerationDecay = 0.9f;
         // Rate at which the player can turn their ship
-        rotation_rate = 45f;
+        rotationRate = 45f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         bool breaking = false;
-        if (movement_enabled == true)
+        if (movementEnabled == true)
         {
             // Manage Decay
-            if (current_speed > min_speed)
+            if (currentSpeed > minSpeed)
             {
-                current_speed -= speed_decay * Time.deltaTime;
-                if (current_speed < min_speed)
+                currentSpeed -= speedDecay * Time.deltaTime;
+                if (currentSpeed < minSpeed)
                 {
-                    current_speed = min_speed;
+                    currentSpeed = minSpeed;
                 }
             }
 
-            if (acceleration_modifier > 0)
+            if (accelerationModifier > 0)
             {
-                acceleration_modifier -= acceleration_decay * Time.deltaTime;
-                if (acceleration_modifier < 0)
+                accelerationModifier -= accelerationDecay * Time.deltaTime;
+                if (accelerationModifier < 0)
                 {
-                    acceleration_modifier = 0;
+                    accelerationModifier = 0;
                 }
             }
-            else if (acceleration_modifier < 0)
+            else if (accelerationModifier < 0)
             {
-                acceleration_modifier += acceleration_decay * Time.deltaTime;
-                if (acceleration_modifier > 0)
+                accelerationModifier += accelerationDecay * Time.deltaTime;
+                if (accelerationModifier > 0)
                 {
-                    acceleration_modifier = 0;
+                    accelerationModifier = 0;
                 }
             }
 
             // Manipulate Acceleration
             if (Input.GetKey("w"))
             {
-                if (acceleration_modifier < acceleration_modifier_max)
+                if (accelerationModifier < accelerationModifierMax)
                 {
-                    acceleration_modifier += acceleration_modifier_rate * Time.deltaTime;
-                    if (acceleration_modifier > acceleration_modifier_max)
+                    accelerationModifier += accelerationModifierRate * Time.deltaTime;
+                    if (accelerationModifier > accelerationModifierMax)
                     {
-                        acceleration_modifier = acceleration_modifier_max;
+                        accelerationModifier = accelerationModifierMax;
                     }
                 }
             }
@@ -102,12 +102,12 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey("s"))
             {
                 breaking = true;
-                if (acceleration_modifier > acceleration_modifier_min)
+                if (accelerationModifier > accelerationModifierMin)
                 {
-                    acceleration_modifier -= acceleration_modifier_rate * Time.deltaTime;
-                    if (acceleration_modifier < acceleration_modifier_min)
+                    accelerationModifier -= accelerationModifierRate * Time.deltaTime;
+                    if (accelerationModifier < accelerationModifierMin)
                     {
-                        acceleration_modifier = acceleration_modifier_min;
+                        accelerationModifier = accelerationModifierMin;
                     }
                 }
             }
@@ -115,34 +115,34 @@ public class PlayerMovement : MonoBehaviour
             // Manipulate Orientation
             if (Input.GetKey("a"))
             {
-                player.transform.Rotate(0, -rotation_rate * Time.deltaTime, 0);
+                player.transform.Rotate(0, -rotationRate * Time.deltaTime, 0);
             }
 
             if (Input.GetKey("d"))
             {
-                player.transform.Rotate(0, rotation_rate * Time.deltaTime, 0);
+                player.transform.Rotate(0, rotationRate * Time.deltaTime, 0);
             }
 
             // Set the current speed
-            current_speed += base_acceleration_rate * acceleration_modifier * Time.deltaTime;
-            if (current_speed > max_speed)
+            currentSpeed += baseAccelerationRate * accelerationModifier * Time.deltaTime;
+            if (currentSpeed > maxSpeed)
             {
-                current_speed = max_speed;
+                currentSpeed = maxSpeed;
             }
-            else if (current_speed < min_speed)
+            else if (currentSpeed < minSpeed)
             {
                 if (breaking == false)
                 {
-                    current_speed = min_speed;
+                    currentSpeed = minSpeed;
                 }
                 else
                 {
-                    current_speed = min_break_speed;
+                    currentSpeed = minBreakSpeed;
                 }
             }
 
             // Move the player
-            player.transform.position += transform.forward * Time.deltaTime * current_speed;
+            player.transform.position += transform.forward * Time.deltaTime * currentSpeed;
         }
     }
 
@@ -150,20 +150,20 @@ public class PlayerMovement : MonoBehaviour
     public void Bump()
     {
         // Disable the movement for the player
-        movement_enabled = false;
+        movementEnabled = false;
 
         // Give the player backwards push, depending on their speed at the time of the collision
         float bump_multiplier = 1.5f;
-        float bump_distance = (50f + (current_speed / 1.5f)) * bump_multiplier;
+        float bump_distance = (50f + (currentSpeed / 1.5f)) * bump_multiplier;
         player.AddForce((-1 * Vector3.forward) * bump_distance);
 
         // Set the players speed, acceleration and acceleration modifier to zero
-        current_speed = 0f;
-        current_acceleration = 0f;
-        acceleration_modifier = 0f;
+        currentSpeed = 0f;
+        currentAcceleration = 0f;
+        accelerationModifier = 0f;
 
         // Call coroutine that waits for a period of time (depending on speed) and reactive movement
-        float wait_shock = 0.75f + (current_speed * 0.075f);
+        float wait_shock = 0.75f + (currentSpeed * 0.075f);
         StartCoroutine(ReactivateMovement(wait_shock));
     }
 
@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Coroutine that reactivates movement and removes pushback after given time period
         yield return new WaitForSeconds(time);
-        movement_enabled = true;
+        movementEnabled = true;
         player.velocity = Vector3.zero;
         player.angularVelocity = Vector3.zero;
     }
