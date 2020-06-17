@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 407593433302122162}
   - component: {fileID: 4825457576366070942}
   - component: {fileID: 3164308530206895798}
-  - component: {fileID: 8331741294293963472}
+  - component: {fileID: 9136616693372000489}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -90,26 +90,23 @@ SphereCollider:
   m_GameObject: {fileID: 1658849072501882536}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &8331741294293963472
-Animator:
-  serializedVersion: 3
+--- !u!111 &9136616693372000489
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658849072501882536}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef0b9436e9fb3b340aea57a58128ba9f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 2985330f42bd7db4c8650803d370215b, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 2985330f42bd7db4c8650803d370215b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

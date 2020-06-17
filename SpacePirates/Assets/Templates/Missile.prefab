@@ -143,3 +143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisRocket: {fileID: 5209647055635366206}
+  thisRocketBody: {fileID: 3033936600052391582}
+  explosion: {fileID: 1658849072501882536, guid: c31c65a8adbf57248a874ee9bac9cb31,
+    type: 3}
