@@ -6,6 +6,7 @@ public class FireWeapon : MonoBehaviour
     public Rigidbody player;
     public GameObject missle;
     public float cooldown = 2.5f;
+    public float remainingCooldown;
     public bool missleOnCooldown = false;
 
     // Update is called once per frame
@@ -17,14 +18,21 @@ public class FireWeapon : MonoBehaviour
             {
                 Instantiate(missle, (player.position + transform.forward * 2.5f), player.rotation * Quaternion.Euler(90, 0, 0));
                 missleOnCooldown = true;
-                StartCoroutine(MissleCooldown(cooldown));
+                remainingCooldown = cooldown;
+            }
+        }
+        if (missleOnCooldown)
+        {
+            remainingCooldown -= Time.deltaTime;
+            if (remainingCooldown <= 0)
+            {
+                missleOnCooldown = false;
             }
         }
     }
 
-    IEnumerator MissleCooldown(float cooldown)
+    public float getRemainungCooldown()
     {
-        yield return new WaitForSeconds(cooldown);
-        missleOnCooldown = false;
+        return remainingCooldown;
     }
 }

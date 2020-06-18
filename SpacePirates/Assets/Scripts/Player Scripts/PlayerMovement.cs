@@ -175,4 +175,9 @@ public class PlayerMovement : MonoBehaviour
         player.velocity = Vector3.zero;
         player.angularVelocity = Vector3.zero;
     }
+
+    public float GetSpeed()
+    {
+        return currentSpeed;
+    }
 }
