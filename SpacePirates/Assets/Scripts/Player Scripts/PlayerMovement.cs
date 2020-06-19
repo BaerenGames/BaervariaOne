@@ -28,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
         // Describes the maximal speed for the player
         maxSpeed = 40f;
         // Describes the minimal speed for the player
-        minSpeed = 7.5f;
+        minSpeed = 5f;
         // Describes the minimal speed while breaking
-        minBreakSpeed = 2.5f;
+        minBreakSpeed = 1.5f;
         // Stores the current speed of the ship, initiated as the minimum speed
         currentSpeed = minSpeed;
         // Rate in which the player accelerates, the higher the rate, the greater the (de)acceleration
