@@ -6,9 +6,11 @@ public class GameStart : MonoBehaviour
 {
     public GameObject player;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
         player.SetActive(true);
+
+        player.GetComponent<InventoryHandler>().UpdateCargoLimit();
+        player.GetComponent<InventoryHandler>().AddCargo("fuel", 10);
     }
 }

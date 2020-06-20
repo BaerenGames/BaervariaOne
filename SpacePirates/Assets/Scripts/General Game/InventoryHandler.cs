@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class InventoryEntry : MonoBehaviour
+public class InventoryEntry
 {
     public Cargo cargoType { get; set; }
     public int cargoAmount { get; set; }
@@ -16,34 +17,30 @@ public class InventoryEntry : MonoBehaviour
 
 public class InventoryHandler : MonoBehaviour
 {
-    public GameObject playerShip;
+    public Ship playerShip;
     public GameObject cargoMasterList;
-    public List<InventoryEntry> playerInventory;
+    private List<InventoryEntry> playerInventory = new List<InventoryEntry>();
     public int cargoLimit = 0;
 
-    void Start()
+    public bool AddCargo(string cargoToAddID, int amount)
     {
-        cargoLimit = playerShip.GetComponent<ShipHandler>().FetchShip("startingShip").shipCargoCapacity;
-        Cargo startingRations = cargoMasterList.GetComponent<CargoHandler>().FetchCargo("ration");
-        InventoryEntry startingRationsEntry = new InventoryEntry(startingRations, 10);
-        playerInventory.Add(startingRationsEntry);
-    }
-
-    public bool AddCargo(Cargo cargoToAdd, int amount)
-    {
-        if (amount <= 0)
+        Cargo cargoToAdd = cargoMasterList.GetComponent<CargoHandler>().FetchCargo(cargoToAddID);
+        if (amount <= 0 || cargoToAdd == null)
         {
             return false;
         }
         else
         {
+            Debug.Log("Made it to else");
             if (GetCurrentLoad() > cargoLimit)
             {
+                Debug.Log("Over Limit");
                 return false;
             }
             else
             {
                 InventoryEntry addedCargo = new InventoryEntry(cargoToAdd, amount);
+                playerInventory.Add(addedCargo);
                 return true;
             }
         }
@@ -82,8 +79,13 @@ public class InventoryHandler : MonoBehaviour
         float currentLoad = 0f;
         foreach (InventoryEntry entry in playerInventory)
         {
-            currentLoad += entry.cargoType.cargoVolume * entry.cargoAmount;
+            currentLoad += entry.cargoType.volume * entry.cargoAmount;
         }
         return currentLoad;
+    }
+    
+    public void UpdateCargoLimit()
+    {
+        cargoLimit = playerShip.cargoCapacity;
     }
 }

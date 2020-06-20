@@ -3502,12 +3502,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608173678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8c1a60dc6e3cf544a010faf873680ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShip: {fileID: 995556732}
+  playerShip: {fileID: 11400000, guid: 40c734c233ea51d4da5486e98ce19b56, type: 2}
   cargoMasterList: {fileID: 2126715040}
   playerInventory: []
   cargoLimit: 0
@@ -5979,6 +5979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ba73e14904f3048b0d23876526c4db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipMasterList:
+  - {fileID: 11400000, guid: 40c734c233ea51d4da5486e98ce19b56, type: 2}
 --- !u!1 &997206083
 GameObject:
   m_ObjectHideFlags: 0
@@ -11977,6 +11979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957451d7d97b79f4ba758704da65d60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cargoMasterList:
+  - {fileID: 11400000, guid: 06acd7bfda2d7764f99bec1b69c0396b, type: 2}
+  - {fileID: 11400000, guid: 06acd7bfda2d7764f99bec1b69c0396b, type: 2}
+  - {fileID: 11400000, guid: fe65acbfc9a6b6640846e376349fc96a, type: 2}
 --- !u!1 &2127437169
 GameObject:
   m_ObjectHideFlags: 0
