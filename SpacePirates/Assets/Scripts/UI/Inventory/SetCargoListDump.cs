@@ -37,4 +37,9 @@ public class SetCargoListDump : MonoBehaviour
     {
         maxAmount = maxAmountPar;
     }
+
+    public void setDumpAmount(int dumpAmountPar)
+    {
+        cargoDump.text = dumpAmountPar.ToString();
+    }
 }

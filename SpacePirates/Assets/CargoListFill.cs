@@ -10,6 +10,10 @@ public class CargoListFill : MonoBehaviour
 
     public void UpdateCargoList()
     {
+        foreach (Transform child in anchor.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         foreach (InventoryEntry cargoItem in playerInventory.GetComponent<InventoryHandler>().GetCurrentInventory())
         {
             GameObject newEntry = Instantiate(cargoListEntry);
@@ -22,7 +26,7 @@ public class CargoListFill : MonoBehaviour
                 entryAmount,
                 entryVolume,
                 entryMaxAmount);
-            newEntry.transform.SetParent(anchor.transform.parent, false);
+            newEntry.transform.SetParent(anchor.transform, false);
         }
     }
 }

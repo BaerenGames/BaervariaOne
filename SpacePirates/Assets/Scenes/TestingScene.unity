@@ -2499,7 +2499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 560, y: -40}
+  m_AnchoredPosition: {x: 562, y: -40}
   m_SizeDelta: {x: 20, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450963735
@@ -2611,7 +2611,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 450963735}
   m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: 0
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
@@ -4969,7 +4969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1136, y: 496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782990011
@@ -8176,7 +8176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -8214,7 +8214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 608173678}
   anchor: {fileID: 1342711388}
-  cargoListEntry: {fileID: 1143593300335027163, guid: be09645abcf8e10429c56961e6cea863,
+  cargoListEntry: {fileID: 5596715954224597673, guid: fa032608564b1f44797daa01b52a7ff8,
     type: 3}
 --- !u!1 &1450096624
 GameObject:
@@ -9879,8 +9879,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: -40}
-  m_SizeDelta: {x: 1162, y: 500}
+  m_AnchoredPosition: {x: -20, y: -40}
+  m_SizeDelta: {x: 1140, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733421903
 MonoBehaviour:
@@ -12898,6 +12898,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1441140494}
     m_Modifications:
+    - target: {fileID: 5935701089755801681, guid: de538df2c37e2d14ea1d023f182b2ea5,
+        type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935701089755801681, guid: de538df2c37e2d14ea1d023f182b2ea5,
+        type: 3}
+      propertyPath: m_Spacing
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5935701089755801682, guid: de538df2c37e2d14ea1d023f182b2ea5,
         type: 3}
       propertyPath: m_Name
@@ -13012,6 +13022,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935701089755801710, guid: de538df2c37e2d14ea1d023f182b2ea5,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935701089755801710, guid: de538df2c37e2d14ea1d023f182b2ea5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935701089755801710, guid: de538df2c37e2d14ea1d023f182b2ea5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de538df2c37e2d14ea1d023f182b2ea5, type: 3}

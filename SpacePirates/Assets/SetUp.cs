@@ -13,8 +13,9 @@ public class SetUp : MonoBehaviour
     public void UpdateText(string name, string amount, string volume, int maxAmount)
     {
         nameText.GetComponent<SetCargoListText>().SetText(name);
-        amountText.GetComponent<SetCargoListText>().SetText(name);
-        volumeText.GetComponent<SetCargoListText>().SetText(name);
+        amountText.GetComponent<SetCargoListText>().SetText(amount);
+        volumeText.GetComponent<SetCargoListText>().SetText(volume);
         dumpText.GetComponent<SetCargoListDump>().setMaxAmount(maxAmount);
+        dumpText.GetComponent<SetCargoListDump>().setDumpAmount(0);
     }
 }
