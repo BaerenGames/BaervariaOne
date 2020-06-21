@@ -11,7 +11,7 @@ public class SetLoadUI : MonoBehaviour
     public void UpdateLoadUI()
     {
         float currentLoad = player.GetComponent<InventoryHandler>().GetCurrentLoad();
-        int maxLoad = player.GetComponent<InventoryHandler>().cargoLimit;
+        int maxLoad = player.GetComponent<InventoryHandler>().GetCargoLimit();
         string loadString = currentLoad.ToString("F1") + "/" + maxLoad.ToString();
         uiText.text = loadString;
     }

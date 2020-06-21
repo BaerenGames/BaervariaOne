@@ -20,7 +20,7 @@ public class InventoryHandler : MonoBehaviour
     public Ship playerShip;
     public GameObject cargoMasterList;
     private List<InventoryEntry> playerInventory = new List<InventoryEntry>();
-    public int cargoLimit = 0;
+    private int cargoLimit { get; set; }
 
     public bool AddCargo(string cargoToAddID, int amount)
     {
@@ -31,10 +31,8 @@ public class InventoryHandler : MonoBehaviour
         }
         else
         {
-            Debug.Log("Made it to else");
             if (GetCurrentLoad() > cargoLimit)
             {
-                Debug.Log("Over Limit");
                 return false;
             }
             else
@@ -74,6 +72,10 @@ public class InventoryHandler : MonoBehaviour
         }
     }
 
+    public void UpdateCargoLimit()
+    {
+        cargoLimit = playerShip.cargoCapacity;
+    }
     public float GetCurrentLoad()
     {
         float currentLoad = 0f;
@@ -83,9 +85,14 @@ public class InventoryHandler : MonoBehaviour
         }
         return currentLoad;
     }
-    
-    public void UpdateCargoLimit()
+
+    public int GetCargoLimit()
     {
-        cargoLimit = playerShip.cargoCapacity;
+        return cargoLimit;
+    }
+
+    public List<InventoryEntry> GetCurrentInventory()
+    {
+        return playerInventory;
     }
 }
